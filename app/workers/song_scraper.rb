@@ -16,7 +16,7 @@ class SongScraper
     if Lyric.where(artist: artist, song: song).any?
       Rails.logger.error "data for #{artist} - #{song} exists, laterz"
     else
-      lyric = Lyric.new(artist: artist, album: album, song: song, text: lyrics)
+      lyric = Lyric.new(sm_id: song_id.to_s, artist: artist, album: album, song: song, text: lyrics)
       lyric.save!
     end
   end

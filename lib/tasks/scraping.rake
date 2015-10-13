@@ -2,11 +2,11 @@ namespace :scraping do
 
   desc('spawn crawlers')
   task(spawn: :environment) do
-    i = 260000
-    wut = 2000000 - i
+    howmany = 200000
+    top = 3530822107858674644
+    i = top
 
-    wut.times do
-      # puts i
+    howmany.times do
       SongScraper.perform_async(i)
 
       i += 1
