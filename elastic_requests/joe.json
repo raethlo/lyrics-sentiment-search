@@ -1,0 +1,18 @@
+// GET /sentimental/lyric/_search
+GET _search
+{
+  "query": {
+    "filtered": {
+      "query": {
+        "match": {
+          "artist.untouched": "Joe Cocker"
+        }
+      },
+      "filter": {
+        "exists": {
+          "field": "sentiment"
+        }
+      }
+    }
+  }
+}
