@@ -33,4 +33,11 @@ namespace :sentiment do
       end
     end
   end
+
+  desc('index all songs to ES')
+  task(index: :environment) do
+    p 'starting lyric import to ES'
+    LyricImport.import
+    p 'done. goodbye'
+  end
 end
