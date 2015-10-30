@@ -1,0 +1,13 @@
+GET /sentimental/lyric/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "aggs": {
+    "sentiment_count": {
+      "terms": {
+        "field": "sentiment"
+      }
+    }
+  }
+}
