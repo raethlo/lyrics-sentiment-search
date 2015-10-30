@@ -1,0 +1,13 @@
+GET _search
+{
+  "query": {
+    "more_like_this": {
+      "fields": [
+        "text"
+      ],
+      "ids": [358],
+      "min_term_freq": 1,
+      "max_query_terms": 12
+    }
+  }
+}

@@ -1,0 +1,36 @@
+GET _search
+{
+  "query": {
+    "filtered": {
+      "query": {
+        "more_like_this": {
+          "fields": [
+            "text"
+          ],
+          "docs": [
+            {
+              "_index": "sentimental",
+              "_type": "lyric",
+              "doc": {
+                "artist.untouched": "Joe Cocker"
+              }
+            }
+          ],
+          "min_term_freq": 1,
+          "max_query_terms": 12
+        }
+      },
+      "filter": {
+        "bool": {
+          "must_not": [
+            {
+              "term": {
+                "artist.untouched": "Joe Cocker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
