@@ -1,0 +1,39 @@
+//PUT /
+{
+  "mappings": {
+    "lyric": {
+      "properties": {
+        "artist": {
+          "type": "multi_field",
+          "fields": {
+            "artist": {
+              "type": "string",
+              "index": "analyzed"
+            },
+            "untouched": {
+              "type": "string",
+              "index": "analyzed",
+              "analyzer": "keyword"
+            }
+          }
+        },
+        "album": {
+          "type": "string"
+        },
+        "song": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "sentiment": {
+          "type": "string",
+          "analyzer": "keyword"
+        },
+        "probability": {
+          "type": "float"
+        }
+      }
+    }
+  }
+}
